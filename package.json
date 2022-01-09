@@ -1,0 +1,29 @@
+{
+  "name": "pay-lib-test-app",
+  "version": "1.0.0",
+  "description": "A simple demo web application to test the pay-lib package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biggaji/pay-lib-test-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biggaji/pay-lib-test-app/issues"
+  },
+  "homepage": "https://github.com/biggaji/pay-lib-test-app#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "pay-lib": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
