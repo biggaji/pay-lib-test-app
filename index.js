@@ -20,6 +20,7 @@ app.get('/', (req,res) => {
 
 app.post('/process_payout', (req,res) => {
     const { ...payload } = req.body;
+    console.log(req.body)
     res.json(payload);
 });
 
