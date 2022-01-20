@@ -3,6 +3,13 @@
           box-sizing: border-box;
   padding: 0;
   margin: 0;
+  line-height: 1.3;
+  letter-spacing: 0.025rem;
+}
+
+:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @font-face {
@@ -19,5 +26,181 @@ body {
 .container {
   width: 100%;
   height: auto;
+}
+
+.container .hero {
+  width: 100%;
+  height: 60vh;
+  padding: 0 0.3rem;
+  margin: 3rem 0 1rem 0;
+}
+
+.container .hero .hero_text {
+  margin: 4rem 0 3rem 0;
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+.container .hero .cta {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem 0 0.7rem 0;
+}
+
+.container .hero .cta .send_trigger {
+  display: block;
+  width: 180px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 7px;
+  background-color: tomato;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.container .popup_container {
+  width: 100%;
+  height: 80vh;
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  -webkit-transition: -webkit-transform 2s ease-in-out 9s;
+  transition: -webkit-transform 2s ease-in-out 9s;
+  transition: transform 2s ease-in-out 9s;
+  transition: transform 2s ease-in-out 9s, -webkit-transform 2s ease-in-out 9s;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.container .popup_container .nav_controls {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .popup_container .nav_controls .topic .topic_text {
+  font-weight: 700;
+}
+
+.container .popup_container .nav_controls svg {
+  padding: 4px;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(0, 0, 0, 0.02);
+  fill: tomato;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.container .popup_container .onboard {
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.container .popup_container .onboard .onboard_text {
+  font-size: 0.9rem;
+}
+
+.container .popup_container #form_container {
+  width: 90%;
+  height: auto;
+  margin: 1rem auto;
+}
+
+.container .popup_container #form_container .input_wrapper {
+  width: 100%;
+}
+
+.container .popup_container #form_container .input_wrapper label {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: tomato;
+}
+
+.container .popup_container #form_container .input_wrapper input {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 10px;
+  outline: none;
+  color: black;
+  border-radius: 5px;
+  font-weight: 600;
+  font-family: Gordita, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container .popup_container #form_container .add_receipent {
+  width: 100%;
+  padding: 10px;
+  background-color: tomato;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 1rem 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  font-family: Gordita, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  cursor: pointer;
+}
+
+.container .popup_container #form_container .btn_wrapper {
+  width: 100%;
+}
+
+.container .popup_container #form_container .btn_wrapper #submit_payouts {
+  padding: 10px;
+  width: 100%;
+  background-color: tomato;
+  color: #fff;
+  border-radius: 5px;
+  margin: 1rem 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: Gordita, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border: none;
+}
+
+.container .popup_container #spinner {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .popup_container #spinner svg {
+  width: 30px;
+  height: 30px;
 }
 /*# sourceMappingURL=style.css.map */
