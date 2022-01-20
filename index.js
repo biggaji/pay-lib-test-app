@@ -18,6 +18,11 @@ app.get('/', (req,res) => {
     res.render("index");
 });
 
+app.post('/process_payout', (req,res) => {
+    const { ...payload } = req.body;
+    res.json(payload);
+});
+
 app.get("/disbursed", async (req,res) => {
     const receipents = [
         {
@@ -40,5 +45,5 @@ app.get("/disbursed", async (req,res) => {
 });
 
 app.listen(3000, () => {
-    console.log("Server payment running");
+    console.log("Payment server running");
 });
