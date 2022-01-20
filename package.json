@@ -20,8 +20,8 @@
   "homepage": "https://github.com/biggaji/pay-lib-test-app#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "express-handlebars": "^6.0.2",
-    "pay-lib": "^1.0.0"
+    "express-handlebars": "^5.2.0",
+    "pay-lib": "^1.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

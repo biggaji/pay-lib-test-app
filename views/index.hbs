@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="hero">
+        <h1 class="hero_text">Disburse payouts easily and fast</h1>
+        <div class="cta">
+            <a href="#" class="send_trigger" id="trigger_popup">Send payouts</a>
+        </div>
+    </div>
+
+    {{!-- pop contianer --}}
+
+    <div class="popup_container">
+        <div class="nav_controls">
+            <div id="back_nav">
+                {{!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16"
+                    height="16">
+                    <path fill-rule="evenodd"
+                        d="M9.78 12.78a.75.75 0 01-1.06 0L4.47 8.53a.75.75 0 010-1.06l4.25-4.25a.75.75 0 011.06 1.06L6.06 8l3.72 3.72a.75.75 0 010 1.06z">
+                    </path>
+                </svg> --}}
+            </div>
+            <div class="topic">
+                <p class="topic_text">Send Payouts</p>
+            </div>
+            <div id="close_nav">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16"
+                    height="16">
+                    <path fill-rule="evenodd"
+                        d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <div class="onboard">
+            <div class="onboard_text">
+                Add receipents to send payouts to.
+            </div>
+        </div>
+        <div class="users"></div>
+        <div class="onboard_user">
+            <button class="add_receipent">
+                Add receipent
+            </button>
+        </div>
+        <div id="form_container">
+            <div id="demo_form">
+                <div class="input_wrapper">
+                    <label for="username">Username</label><br>
+                    <input type="text" id="username" placeholder="biggaji">
+                </div>
+                <div class="input_wrapper">
+                    <label for="amount">Amount</label><br>
+                    <input type="text" id="amount" placeholder="100000">
+                </div>
+                <button class="add_user" type="button">
+                    Add
+                </button>
+            </div>
+            <form id="payout_form">
+                <div class="btn_wrapper">
+                    <button id="submit_payouts" disabled=true>Send</button>
+                </div>
+            </form>
+        </div>
+
+        {{!-- <div id="spinner">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                viewBox="0 0 38 38" stroke="tomato" id="loading_indicator">
+                <g fill="none" fill-rule="evenodd">
+                    <g transform="translate(1 1)" stroke-width="2.5">
+                        <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
+                        <path d="M36 18c0-9.94-8.06-18-18-18">
+                            <animateTransform attributeName="transform" type="rotate"
+                                from="0 18 18" to="360 18 18" dur="1s"
+                                repeatCount="indefinite" />
+                        </path>
+                    </g>
+                </g>
+            </svg>
+        </div> --}}
+    </div>
+</div>
