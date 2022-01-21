@@ -72,7 +72,7 @@ addUserBtn.addEventListener("click", (e) => {
     demo_form.style.display = "none";
     submitBtn.disabled = false;
     addRecpBtn.style.display = "block";
-    addRecpBtn.innerHTML = "Add more receipents";
+    addRecpBtn.innerHTML = "Add more receipent";
 });
 
 
@@ -84,23 +84,54 @@ addRecpBtn.addEventListener("click", () => {
 // toggle function
 
 // handle payout process
-let form = document.getElementById("payout_form");
-const spinner = document.getElementById("loading_indicator");
+const spinner = document.getElementById("spinner");
+const back_trigger = document.getElementById("back_nav");
+const response_cont = document.querySelector(".response_container");
+const success_response_cont = document.querySelector(".success_response");
+const error_response_cont = document.querySelector(".error_response");
+let payout_summary = document.getElementById("payout_receivers");
+let error_reason = document.getElementById("reason");
+let retryPayoutBtn = document.getElementById("retry_payout");
 
-submitBtn.addEventListener("click", async (e) => {
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        let payload = arrToSend;
-        console.log(JSON.stringify(payload));
-        let response = await fetch('/process_payout', {"content-type": "application/json", method: "POST", body: JSON.stringify(payload)});
-    
-        // let resp = await response.json();
-        return response.json()
-        .then(resp => {
-            console.log(resp);
+submitBtn.addEventListener("click", () => {
+
+    spinner.style.display = "flex";
+
+    let payload = arrToSend;
+    fetch('/process_payout', { headers : { "Content-Type": "application/json" }, method: "POST", body: JSON.stringify(payload)})
+    .then(resp => {
+            return resp.json();
         })
-        .catch(err => {
-            console.log(err);
-        });
+        .then(data => {
+            setTimeout(() => {
+                spinner.style.display = "none";
+            }, 3000);
+            response_cont.style.display = "block";
+        if(typeof data === "string") {
+            // it is an error message
+            // display it
+            error_reason.innerHTML = `Reason: ${data}`;
+            error_response_cont.style.display = "block";
+        } else {
+            // it is an object with the data
+            // display it
+            // generate summary
+            success_response_cont.style.display = "block";
+            data.forEach(receipent => {
+                let p = document.createElement("p");
+                p.className = "summary_logs";
+                p.textContent = `${receipent["name"]} recieved #${receipent["amount"]}`;
+                payout_summary.appendChild(p);
+            });
+            popup_closer.addEventListener("click", () => {
+                location.reload();
+            });
+            back_trigger.style.visibility = "hidden";
+        };
+    })
+    .catch(err => {
+        spinner.style.display = "none";
+        console.log("Error",err);
+        // show error message
     });
 });

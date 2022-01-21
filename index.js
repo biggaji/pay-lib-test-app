@@ -18,31 +18,15 @@ app.get('/', (req,res) => {
     res.render("index");
 });
 
-app.post('/process_payout', (req,res) => {
-    const { ...payload } = req.body;
-    console.log(req.body)
-    res.json(payload);
-});
-
-app.get("/disbursed", async (req,res) => {
-    const receipents = [
-        {
-            name: "vhikky",
-            amount: 20000
-        },
-        {
-            name: "yinka",
-            amount: 90000
-        },
-        {
-            name: "dolapo",
-            amount: 50000
-        }
-    ];
-
-    let paymentIntent = await paylib.disburse.send(receipents);
-
-    res.json(paymentIntent);
+app.post('/process_payout', async (req,res) => {
+    // pass payload to paylib
+    paylib.disburse.send(req.body)
+    .then(data => {
+        res.json(data);
+    })
+    .catch(err => {
+        res.json(err);
+    });
 });
 
 app.listen(3000, () => {
