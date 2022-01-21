@@ -2,6 +2,7 @@
 
 // pop nav controls
 const popup = document.querySelector(".popup_container");
+const back_trigger = document.getElementById("back_nav");
 
 function closePopup() {
     popup.style.display = "none";
@@ -44,13 +45,14 @@ function displayForm() {
     addRecpBtn.style.display = "none";
     username.value = "";
     amount.value = "";
+    back_trigger.style.visibility = "visible";
 };
+
 
 function addUser(arr) {
     arr.forEach(obj => {
         let p = document.createElement("p");
-        console.log(obj)
-        p.textContent = `Send ${obj["name"]} - #${obj["amount"]}`;
+        p.textContent = `Send \n${obj["name"]} \n#${obj["amount"]}`;
         users.appendChild(p);
     });
 };
@@ -71,11 +73,10 @@ addUserBtn.addEventListener("click", (e) => {
     addUser(usersArr);
     demo_form.style.display = "none";
     submitBtn.disabled = false;
+    submitBtn.style.cursor = "pointer";
     addRecpBtn.style.display = "block";
     addRecpBtn.innerHTML = "Add more receipent";
 });
-
-
 
 addRecpBtn.addEventListener("click", () => {
     displayForm();
@@ -85,13 +86,18 @@ addRecpBtn.addEventListener("click", () => {
 
 // handle payout process
 const spinner = document.getElementById("spinner");
-const back_trigger = document.getElementById("back_nav");
 const response_cont = document.querySelector(".response_container");
 const success_response_cont = document.querySelector(".success_response");
 const error_response_cont = document.querySelector(".error_response");
 let payout_summary = document.getElementById("payout_receivers");
 let error_reason = document.getElementById("reason");
 let retryPayoutBtn = document.getElementById("retry_payout");
+
+back_trigger.addEventListener("click", () => {
+    demo_form.style.display = "none";
+    addRecpBtn.style.display = "block";
+    back_trigger.style.visibility = "hidden";
+});
 
 submitBtn.addEventListener("click", () => {
 
@@ -105,8 +111,8 @@ submitBtn.addEventListener("click", () => {
         .then(data => {
             setTimeout(() => {
                 spinner.style.display = "none";
+                response_cont.style.display = "block";
             }, 3000);
-            response_cont.style.display = "block";
         if(typeof data === "string") {
             // it is an error message
             // display it
@@ -120,8 +126,16 @@ submitBtn.addEventListener("click", () => {
             data.forEach(receipent => {
                 let p = document.createElement("p");
                 p.className = "summary_logs";
+                let img = document.createElement("img");
+                img.src = "./check.svg";
+                img.className = "check_img";
                 p.textContent = `${receipent["name"]} recieved #${receipent["amount"]}`;
-                payout_summary.appendChild(p);
+                let div = document.createElement("div");
+                div.className = "payout_div";
+                div.appendChild(img);
+                div.appendChild(p);
+                payout_summary.appendChild(div);
+                
             });
             popup_closer.addEventListener("click", () => {
                 location.reload();

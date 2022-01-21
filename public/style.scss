@@ -4,7 +4,7 @@
     margin: 0;
     line-height: 1.3;
     letter-spacing: 0.025rem;
-}
+    }
 
 :disabled {
     opacity: 0.6;
@@ -60,14 +60,12 @@ body {
     .popup_container {
         width: 100%;
         height: 80vh;
-        // border: 1px solid tomato;
         display: none;
         position: absolute;
         background-color: #fff;
         z-index: 3;
         left: 0;
         right: 0;
-        // bottom: -80%;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         transition: transform 2s ease-in-out 9s;
@@ -83,6 +81,9 @@ body {
                 .topic_text {
                     font-weight: 700;
                 }
+            }
+            #back_nav {
+                visibility: hidden;
             }
             svg {
                 padding: 4px;
@@ -125,7 +126,7 @@ body {
             margin: 0.4rem auto;
             padding: 10px;
             p {
-                font-weight: 600;
+                font-weight: 500;
                 font-size: 0.9rem;
                 margin: 0.3rem 0;
             }
@@ -199,6 +200,8 @@ body {
             left: 0;
             right: 0;
             z-index: 10;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
             background-color: #fff;
             .success_response {
                 width: 100%;
@@ -225,15 +228,35 @@ body {
                     text-align: center;
                     font-weight: 600;
                 }
-                #payout_receivers {
+                #received {
+                    width: 100%;
                     display: flex;
                     justify-content: flex-start;
                     flex-direction: column;
-                    align-items: center;
                     margin: 1rem 0;
-                    .summary_logs {
-                        font-size: 0.9rem;
-                        margin: 0.4rem 0;
+                    #payout_receivers {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        .payout_div {
+                            display: flex;
+                            width: 100%;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            .check_img {
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 0.2rem;
+                            }
+                            .summary_logs {
+                                // width: 100%;
+                                font-size: 0.9rem;
+                                margin: 0.4rem 0.2rem 0.4rem 0;
+                            }
+                        }
                     }
                 }
             }
@@ -286,6 +309,8 @@ body {
             width: 100%;
             position: absolute;
             background-color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
             z-index: 6;
             height: 100%;
             left: 0;
