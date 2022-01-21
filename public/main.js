@@ -172,7 +172,9 @@ submitBtn.addEventListener("click", () => {
     })
     .catch(err => {
         spinner.style.display = "none";
-        console.log("Error",err);
+        // console.log("Error",err);
         // show error message
+        error_reason.innerHTML = `Reason: ${data}`;
+        error_response_cont.style.display = "block";
     });
 });

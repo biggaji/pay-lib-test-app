@@ -327,4 +327,28 @@ body {
             }
         }
     }
+    .how_it_works {
+        padding: 1rem 5%;
+        margin: 2rem 0;
+        .sub_heading {
+            margin: 1rem 0;
+            // text-align: center;
+        }
+    }
+    footer {
+        width: 100%;
+        height: 10vh;
+        background-color: rgb(235, 151, 136);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .legal {
+            color: #fff;
+            font-weight: 600;
+            a {
+                text-decoration: underline;
+                color: black;
+            }
+        }
+    }
 }
