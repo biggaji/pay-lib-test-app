@@ -46,13 +46,17 @@ function displayForm() {
     username.value = "";
     amount.value = "";
     back_trigger.style.visibility = "visible";
+    addUserBtn.disabled = true;
+    username.style.border = "1px solid tomato";
+    amount.style.border = "1px solid tomato";
+    username.placeholder = "biggaji";
 };
 
 
 function addUser(arr) {
     arr.forEach(obj => {
         let p = document.createElement("p");
-        p.textContent = `Send \n${obj["name"]} \n#${obj["amount"]}`;
+        p.textContent = `- Send ${obj["name"]} #${obj["amount"]}`;
         users.appendChild(p);
     });
 };
@@ -82,7 +86,30 @@ addRecpBtn.addEventListener("click", () => {
     displayForm();
 });
 
-// toggle function
+// validation
+let inputArr = [];
+inputArr.push(username, amount);
+
+// function to check input fields
+
+function checkForEmptyFields(arr) {
+    return arr.value.trim() !== "";
+};
+
+inputArr.forEach(input => {
+    input.addEventListener("input", () => {
+        let notEmpty = inputArr.every(checkForEmptyFields);
+    
+        if(notEmpty) {
+            addUserBtn.disabled = false;
+            input.style.border = "tomato";
+        } else {
+            input.style.border = "red";
+            input.placeholder = "This field is required";
+            addUserBtn.disabled = true;
+        };
+    });
+});
 
 // handle payout process
 const spinner = document.getElementById("spinner");
