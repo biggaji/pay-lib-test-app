@@ -6,6 +6,18 @@
         </div>
     </div>
 
+    <div class="how_it_works">
+        <h2 class="sub_heading">How can you use it?</h2>
+        <p class="info">You just need to provide the receipent name and the amount you want to send.
+             Paylib takes care of the transaction in a seamlessa and fast way.</p>
+    </div>
+
+    <footer>
+        <div class="legal">Demo project by <a href="twitter.com/bigg_aji" target="_blank">Tobi Ajibade</a><br>
+        &copy; Paylib 2022.
+        </div>
+    </footer>
+
     {{!-- pop contianer --}}
 
     <div class="popup_container">
@@ -51,7 +63,7 @@
                     <label for="amount">Amount</label><br>
                     <input type="text" id="amount" placeholder="100000">
                 </div>
-                <button class="add_user" type="button">
+                <button class="add_user" type="button" disabled>
                     Add
                 </button>
             </div>
@@ -73,7 +85,9 @@
                 </div>
                 <p id="success_message">Payout sent successfully</p>
                 <p class="summary">Payout Summary</p>
-                <div id="payout_receivers"></div>
+                <div id="received">
+                    <div id="payout_receivers"></div>
+                </div>
             </div>
             <div class="error_response">
                 <div class="error_logo">

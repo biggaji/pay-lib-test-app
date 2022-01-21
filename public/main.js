@@ -2,6 +2,7 @@
 
 // pop nav controls
 const popup = document.querySelector(".popup_container");
+const back_trigger = document.getElementById("back_nav");
 
 function closePopup() {
     popup.style.display = "none";
@@ -44,13 +45,18 @@ function displayForm() {
     addRecpBtn.style.display = "none";
     username.value = "";
     amount.value = "";
+    back_trigger.style.visibility = "visible";
+    addUserBtn.disabled = true;
+    username.style.border = "1px solid tomato";
+    amount.style.border = "1px solid tomato";
+    username.placeholder = "biggaji";
 };
+
 
 function addUser(arr) {
     arr.forEach(obj => {
         let p = document.createElement("p");
-        console.log(obj)
-        p.textContent = `Send ${obj["name"]} - #${obj["amount"]}`;
+        p.textContent = `- Send ${obj["name"]} #${obj["amount"]}`;
         users.appendChild(p);
     });
 };
@@ -71,27 +77,54 @@ addUserBtn.addEventListener("click", (e) => {
     addUser(usersArr);
     demo_form.style.display = "none";
     submitBtn.disabled = false;
+    submitBtn.style.cursor = "pointer";
     addRecpBtn.style.display = "block";
     addRecpBtn.innerHTML = "Add more receipent";
 });
-
-
 
 addRecpBtn.addEventListener("click", () => {
     displayForm();
 });
 
-// toggle function
+// validation
+let inputArr = [];
+inputArr.push(username, amount);
+
+// function to check input fields
+
+function checkForEmptyFields(arr) {
+    return arr.value.trim() !== "";
+};
+
+inputArr.forEach(input => {
+    input.addEventListener("input", () => {
+        let notEmpty = inputArr.every(checkForEmptyFields);
+    
+        if(notEmpty) {
+            addUserBtn.disabled = false;
+            input.style.border = "tomato";
+        } else {
+            input.style.border = "red";
+            input.placeholder = "This field is required";
+            addUserBtn.disabled = true;
+        };
+    });
+});
 
 // handle payout process
 const spinner = document.getElementById("spinner");
-const back_trigger = document.getElementById("back_nav");
 const response_cont = document.querySelector(".response_container");
 const success_response_cont = document.querySelector(".success_response");
 const error_response_cont = document.querySelector(".error_response");
 let payout_summary = document.getElementById("payout_receivers");
 let error_reason = document.getElementById("reason");
 let retryPayoutBtn = document.getElementById("retry_payout");
+
+back_trigger.addEventListener("click", () => {
+    demo_form.style.display = "none";
+    addRecpBtn.style.display = "block";
+    back_trigger.style.visibility = "hidden";
+});
 
 submitBtn.addEventListener("click", () => {
 
@@ -105,8 +138,8 @@ submitBtn.addEventListener("click", () => {
         .then(data => {
             setTimeout(() => {
                 spinner.style.display = "none";
+                response_cont.style.display = "block";
             }, 3000);
-            response_cont.style.display = "block";
         if(typeof data === "string") {
             // it is an error message
             // display it
@@ -120,8 +153,16 @@ submitBtn.addEventListener("click", () => {
             data.forEach(receipent => {
                 let p = document.createElement("p");
                 p.className = "summary_logs";
+                let img = document.createElement("img");
+                img.src = "./check.svg";
+                img.className = "check_img";
                 p.textContent = `${receipent["name"]} recieved #${receipent["amount"]}`;
-                payout_summary.appendChild(p);
+                let div = document.createElement("div");
+                div.className = "payout_div";
+                div.appendChild(img);
+                div.appendChild(p);
+                payout_summary.appendChild(div);
+                
             });
             popup_closer.addEventListener("click", () => {
                 location.reload();
@@ -131,7 +172,9 @@ submitBtn.addEventListener("click", () => {
     })
     .catch(err => {
         spinner.style.display = "none";
-        console.log("Error",err);
+        // console.log("Error",err);
         // show error message
+        error_reason.innerHTML = `Reason: ${data}`;
+        error_response_cont.style.display = "block";
     });
 });
