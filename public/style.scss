@@ -187,10 +187,112 @@ body {
                 }
             }
         }
+        .response_container {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            background-color: #fff;
+            .success_response {
+                width: 100%;
+                display: none;
+                height: auto;
+                .success_logo {
+                    display: flex;
+                    justify-content: center;
+                    svg {
+                        fill: green;
+                        width: 40px;
+                        height: 40px;
+                        padding:5px;
+                        background-color: rgba(245, 116, 93, 0.1);
+                        border-radius: 100%;
+                    }
+                }
+                #success_message {
+                    width: 100%;
+                    text-align: center;
+                    margin: 1rem 0;
+                }
+                .summary {
+                    text-align: center;
+                    font-weight: 600;
+                }
+                #payout_receivers {
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 1rem 0;
+                    .summary_logs {
+                        font-size: 0.9rem;
+                        margin: 0.4rem 0;
+                    }
+                }
+            }
+            .error_response {
+                width: 100%;
+                height: 100%;
+                display: none;
+                .error_logo {
+                     display: flex;
+                    justify-content: center;
+                    svg {
+                        fill: red;
+                        width: 40px;
+                        height: 40px;
+                        padding:5px;
+                        background-color: rgba(245, 116, 93, 0.1);
+                        border-radius: 100%;
+                    }
+                }
+                #error_message {
+                    width: 100%;
+                    text-align: center;
+                    margin: 1rem 0;
+                }
+                #reason {
+                    width: 100%;
+                    text-align: center;
+                    margin: 1rem 0;
+                }
+                .retry {
+                    width: 90%;
+                    margin: 1rem auto;
+                    #retry_payout {
+                        width: 100%;
+                        padding: 10px;
+                        background-color: tomato;
+                        color: #fff;
+                        border: none;
+                        border-radius: 5px;
+                        font-weight: 600;
+                        font-size: 0.9rem;
+                        border: none;
+                        font-family: $Gordita;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
         #spinner {
             width: 100%;
+            position: absolute;
+            background-color: #fff;
+            z-index: 6;
             height: 100%;
-            display: flex;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
             justify-content: center;
             align-items: center;
             svg {

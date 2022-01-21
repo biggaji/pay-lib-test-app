@@ -21,7 +21,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "express-handlebars": "^5.2.0",
-    "pay-lib": "^1.1.1"
+    "pay-lib": "^1.1.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
