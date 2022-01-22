@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+};
+
 const express = require("express");
 const exphbs = require("express-handlebars");
 const path = require("path");
@@ -28,7 +32,7 @@ app.post('/process_payout', async (req,res) => {
         res.json(err);
     });
 });
-
-app.listen(3000, () => {
-    console.log("Payment server running");
+let PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log("Payment server running on port " + PORT);
 });

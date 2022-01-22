@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/biggaji/pay-lib-test-app#readme",
   "dependencies": {
+    "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "express-handlebars": "^5.2.0",
     "pay-lib": "^1.1.3"
