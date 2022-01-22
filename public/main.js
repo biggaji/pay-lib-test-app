@@ -96,20 +96,46 @@ function checkForEmptyFields(arr) {
     return arr.value.trim() !== "";
 };
 
+let username_msg = document.getElementById("username_msg");
+let amount_msg = document.getElementById("amount_msg");
+
 inputArr.forEach(input => {
     input.addEventListener("input", () => {
         let notEmpty = inputArr.every(checkForEmptyFields);
     
         if(notEmpty) {
             addUserBtn.disabled = false;
-            input.style.border = "tomato";
+            // input.style.border = "tomato";
         } else {
-            input.style.border = "red";
+            // input.style.border = "red";
             input.placeholder = "This field is required";
             addUserBtn.disabled = true;
         };
     });
 });
+
+username.addEventListener("input", () => {
+    let stringMatch = /[A-Za-z]/gi.test(amount.value.trim());
+    if(!stringMatch) {
+        addUserBtn.disabled = true;
+        username_msg.innerHTML = "Username must be a string";
+        username_msg.style.color = "red";
+        username.style.border = "1px soild red";
+    };
+});
+
+amount.addEventListener("input", () => {
+    let stringMatch = /[A-Za-z]/gi.test(amount.value.trim());
+    // console.log(stringMatch)
+    if(stringMatch) {
+        addUserBtn.disabled = true;
+        amount_msg.innerHTML = "Amount must be a number";
+        amount_msg.style.color = "red";
+        username.style.border = "1px soild red";
+    };
+});
+
+
 
 // handle payout process
 const spinner = document.getElementById("spinner");
