@@ -67,6 +67,18 @@ body {
   font-weight: 600;
 }
 
+.container .hero .illustration {
+  width: 100%;
+  height: 80%;
+}
+
+.container .hero .illustration img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
 .container .popup_container {
   width: 100%;
   height: 80vh;
@@ -210,6 +222,7 @@ body {
 
 .container .popup_container #form_container #demo_form .input_wrapper .error_div span {
   margin-right: 0.3rem;
+  display: none;
 }
 
 .container .popup_container #form_container #demo_form .input_wrapper .error_div span svg {
@@ -459,16 +472,17 @@ body {
 .container footer {
   width: 100%;
   height: 10vh;
-  background-color: #eb9788;
+  background-color: tomato;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 5%;
 }
 
 .container footer .legal {
