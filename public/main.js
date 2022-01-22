@@ -113,14 +113,21 @@ inputArr.forEach(input => {
         };
     });
 });
-
+let username_alert_icon = document.getElementById("username_alert");
+let amount_alert_icon = document.getElementById("amount_alert");
+username_alert_icon.style.display = "none";
 username.addEventListener("input", () => {
-    let stringMatch = /[A-Za-z]/gi.test(amount.value.trim());
-    if(!stringMatch) {
+    let stringMatch = /[A-Za-z]/gi.test(username.value.trim());
+    let numMatch = /[0-9]/gi.test(username.value.trim());
+    if(stringMatch === false || numMatch === true) {
         addUserBtn.disabled = true;
+        username_alert_icon.style.display = "block";
         username_msg.innerHTML = "Username must be a string";
         username_msg.style.color = "red";
         username.style.border = "1px soild red";
+    } else {
+        username_alert_icon.style.display = "none";
+        username_msg.innerHTML = "";
     };
 });
 
@@ -129,9 +136,13 @@ amount.addEventListener("input", () => {
     // console.log(stringMatch)
     if(stringMatch) {
         addUserBtn.disabled = true;
+        amount_alert_icon.style.display = "block";
         amount_msg.innerHTML = "Amount must be a number";
         amount_msg.style.color = "red";
         username.style.border = "1px soild red";
+    } else {
+        amount_alert_icon.style.display = "none";
+        amount_msg.innerHTML = "";
     };
 });
 
