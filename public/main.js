@@ -12,7 +12,7 @@ function closePopup() {
 };
 
 function openPopup() {
-    document.body.style.backgroundColor = "rgba(0,0,0,0.23)";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.1)";
     popup.style.transform = "translateY(-0.1%)";
     popup.style.bottom = "-0.1%";
     popup.style.display = "block";
