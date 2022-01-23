@@ -24,6 +24,9 @@
     {{!-- pop contianer --}}
 
     <div class="popup_container">
+        <div class="upper_divider">
+            <span id="divider"></span>
+        </div>
         <div class="nav_controls">
             <div id="back_nav">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16"
@@ -60,7 +63,7 @@
             <div id="demo_form">
                 <div class="input_wrapper">
                     <label for="username">Receipent name</label><br>
-                    <input type="text" id="username" placeholder="biggaji">
+                    <input type="text" id="username" placeholder="biggaji" autocomplete="off">
                     <div class="error_div">
                         <span class="err_icon" id="username_alert"><svg xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 16 16" width="16" height="16">
@@ -73,7 +76,7 @@
                 </div>
                 <div class="input_wrapper">
                     <label for="amount">Amount</label><br>
-                    <input type="text" id="amount" placeholder="100000">
+                    <input type="text" id="amount" placeholder="100000" autocomplete="off">
                     <div class="error_div">
                         <span class="err_icon" id="amount_alert"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16"
                             height="16">
